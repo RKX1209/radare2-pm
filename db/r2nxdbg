@@ -1,0 +1,16 @@
+R2PM_BEGIN
+
+R2PM_GIT "https://github.com/RKX1209/r2nxdbg"
+R2PM_DESC "[r2-nxdbg] Nintendo switch IO plugin for radare2"
+
+R2PM_INSTALL() {
+        ${MAKE} || exit 1
+	${R2PM_SUDO} cp -f r2nxdbg.${LIBEXT} "${R2PM_PLUGDIR}" || exit 1
+        echo "cp -f r2nxdbg.${LIBEXT} ${R2PM_PLUGDIR}"
+}
+
+R2PM_UNINSTALL() {
+	rm -f "${R2PM_PLUGDIR}/r2nxdbg".*
+}
+
+R2PM_END
